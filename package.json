@@ -1,0 +1,1 @@
+{"name":"next-stop-gas-station","private":true,"version":"1.0.0","type":"module","scripts":{"dev":"node ../RestaurantCommon/scripts/serve.mjs gas","build":"node ../RestaurantCommon/scripts/build.mjs gas","preview":"node ../RestaurantCommon/scripts/serve.mjs gas --preview","test":"node ../RestaurantCommon/node_modules/vitest/vitest.mjs run --config vitest.config.mjs"}}
