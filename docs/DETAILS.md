@@ -1,10 +1,10 @@
 # Next Stop — Gas Station
 
-Hratelná 3D hra pro mobilní i desktopový browser. Z jedné pumpy vzniká stanice pro osobáky i trucky, shop, občerstvení a čisté zázemí. Samostatný projekt; nástroje a malé pomocné moduly sdílí s RestaurantCommon.
+A playable 3D game for mobile and desktop browsers. A single pump grows into a station for cars and trucks, with a shop, snacks, and clean facilities. A standalone project; it shares tools and small helper modules with RestaurantCommon.
 
-## Spuštění
+## Running
 
-Vyžaduje Node.js 22.12+ a WebGL 2. Zachovej sourozenecké složky GasStation a RestaurantCommon. Jednorázově v RestaurantCommon spusť `npm ci`, potom v GasStation:
+Requires Node.js 22.12+ and WebGL 2. Keep the sibling folders GasStation and RestaurantCommon together. Run `npm ci` once in RestaurantCommon, then in GasStation:
 
 ```powershell
 npm run dev
@@ -13,50 +13,49 @@ npm run build
 npm run preview
 ```
 
-Dev i běžný preview používají http://localhost:4175. Pro souběžný preview použij `node ../RestaurantCommon/scripts/serve.mjs gas --preview --port 4185`. Telefon ve stejné síti může použít adresu Network vypsanou serverem.
+Both dev and the regular preview use http://localhost:4175. For a parallel preview, use `node ../RestaurantCommon/scripts/serve.mjs gas --preview --port 4185`. A phone on the same network can use the Network address printed by the server.
 
-Build v GasStation/dist lze samostatně publikovat na statický HTTPS hosting, i do podadresáře. PWA a offline spuštění potřebují HTTPS/localhost a dokončené první online načtení. Obyčejná LAN HTTP adresa slouží pouze pro vyzkoušení hry.
+The build in GasStation/dist can be published on its own to static HTTPS hosting, including in a subdirectory. PWA and offline launch need HTTPS/localhost and a completed first online load. A plain LAN HTTP address is only for trying the game out.
 
-## Obsah
+## Contents
 
-- Šest fází, 12 rozšíření, částečné financování, závěr a pokračování po dokončení.
-- Auta a trucky, kompatibilní stojany a parkování, řízené průjezdy, řidiči chodící mezi službami.
-- Dva typy paliva, sklad a objednávky; později automatická logistika.
-- Šest kategorií shopu s vlastními zásobami a čistým výnosem: voda, snacky, cestovní potřeby, péče o auto, potřeby řidičů, suvenýry.
-- Káva a hot dogy se vstupními zásobami a časovanou přípravou.
-- WC/sprchy: kvalita, čistota, obsazenost a znovuotevření až po kompletním úklidu.
-- Šest profesí, šest upgrade řad, tři vzhledy postavy, denní cíle.
-- Vlastní procedurální 3D modely, animace, nesené zásoby, zvuky, úsporná grafika a pauza.
-- Dvacet jazyků, automatická volba browseru, ruční přepnutí, arabské RTL.
-- Autosave, export/import, potvrzovaný reset, ochrana nečitelné zálohy a omezený offline výnos.
+- Six phases, 12 expansions, partial funding, an ending, and continued play after completion.
+- Cars and trucks, compatible pumps and parking, guided drive-throughs, drivers walking between services.
+- Two fuel types, storage, and orders; automatic logistics later on.
+- Six shop categories with their own stock and net profit: water, snacks, travel supplies, car care, driver supplies, souvenirs.
+- Coffee and hot dogs with input stock and timed preparation.
+- Restrooms/showers: quality, cleanliness, occupancy, and reopening only after a complete cleanup.
+- Six professions, six upgrade tracks, three character looks, daily goals.
+- Custom procedural 3D models, animations, carried stock, sounds, power-saving graphics, and pause.
+- Twenty languages, automatic browser detection, manual switching, Arabic RTL.
+- Autosave, export/import, a confirmed reset, protection of an unreadable backup, and limited offline income.
 
-Bez účtu, reklam, plateb, vzdálené analytiky a externích modelů/fontů za běhu.
+No account, ads, payments, remote analytics, or external models/fonts at runtime.
 
-## Ovládání
+## Controls
 
-WASD/šipky nebo tažení prstu. Klepnutí na štítek služby postavu dovede na místo. Ruční pohyb, otevření panelu, pauza a ztráta fokusu automatickou cestu ruší. Zaměřovač přepíná sledování postavy a přehled stanice.
+WASD/arrow keys or finger drag. Tapping a service label walks the character to that spot. Manual movement, opening a panel, pause, and loss of focus cancel the automatic path. The crosshair toggles between following the character and an overview of the station.
 
-U pumpy stáním v obslužné zóně zahájíš tankování. Ve skladu vyzvedneš krabice a u služby je automaticky vyložíš. WC/sprchu uklízíš stáním poblíž, pokud není obsazená. Zaměstnanci tyto úkoly postupně přebírají.
+At a pump, standing in the service zone starts refueling. In the warehouse you pick up boxes, and at a service they are unloaded automatically. You clean a restroom/shower by standing nearby, unless it is occupied. Employees gradually take over these tasks.
 
-Panel **Služby** ukazuje palivo, regály, přípravu jídla, hygienu a cenovou nabídku dodávky. Palivo, diesel i zásobovací krabice stojí 1 minci za jednotku. Před objednáním vidíš množství, celkovou cenu a zbývající hotovost. Platba proběhne jednou při objednání; za 24 sekund přijde přesně objednaný náklad. Při nízkém rozpočtu nabídka zmenší dodávku. Kliknutí na sklad otevře nabídku a tlačítko pro vyzvednutí zásob.
+The **Services** panel shows fuel, shelves, food preparation, hygiene, and the delivery price quote. Fuel, diesel, and supply boxes cost 1 coin per unit. Before ordering you see the quantity, the total price, and the remaining cash. Payment is made once at order time; exactly the ordered load arrives after 24 seconds. With a low budget, the offer shrinks the delivery. Clicking the warehouse opens the offer and a button for picking up the supplies.
 
-Počáteční zásoby jsou součástí nové hry. Při nulové hotovosti a méně než 4 jednotkách automobilového paliva je dostupných 8 jednotek nouzového paliva na bezúročný úvěr; 8 mincí se automaticky splatí z dalších tržeb. Nový úvěr nelze čerpat před splacením. Automatická logistika používá stejná pravidla a platí z volných peněz. Prodej připisuje hrubou tržbu (auto 16, truck 64 mincí), nákupní náklad se podruhé neodečítá. Offline odměna vychází z čistého přírůstku hotovosti po zaplacení dodávek.
+Starting stock is part of a new game. With zero cash and fewer than 4 units of car fuel, 8 units of emergency fuel are available on an interest-free loan; 8 coins are repaid automatically from further revenue. A new loan cannot be taken before the previous one is repaid. Automatic logistics uses the same rules and pays from free money. A sale credits gross revenue (car 16, truck 64 coins); the purchase cost is not deducted a second time. The offline reward is based on the net cash gain after paying for deliveries.
 
-Uložení používá `next-stop:save:v1`, preference `next-stop:preferences`. Nečitelné či budoucí uložení se automaticky nepřepisuje. Ochranu ukončí platný import nebo výslovný reset.
+The save uses `next-stop:save:v1`, the preferences `next-stop:preferences`. An unreadable or future-version save is not overwritten automatically. The protection ends with a valid import or an explicit reset.
 
-## Ověření a dokumentace
+## Validation and documentation
 
-V RestaurantCommon spusť `npm run typecheck` a `npm run test:e2e`; před browserovými testy sestav všechny hry. Vlastní GasStation testy spouští `npm test`.
+In RestaurantCommon, run `npm run typecheck` and `npm run test:e2e`; build all games before the browser tests. GasStation's own tests are run by `npm test`.
 
-[Výsledky a omezení](VALIDATION.md) · [Původ grafiky](ASSETS.md) · [Zadání](../SPEC.md) · [Průzkum konkurence](../RESEARCH.md)
+[Results and limits](VALIDATION.md) · [Graphics origin](ASSETS.md) · [Specification](../SPEC.md) · [Competitor research](../RESEARCH.md)
 
-Dvacet simulačních průchodů s kolizemi chodců: 47,54–49,78 minuty. Nejde o měření lidské zábavnosti či retence. Fyzický Android/iPhone a nativní obchody nebyly ověřeny. Myčka, servis, nabíjení, motel a další mapy patří do případných dalších verzí.
+Twenty simulation runs with pedestrian collisions: 47.54–49.78 minutes. This is not a measurement of human enjoyment or retention. A physical Android/iPhone and native stores were not verified. A car wash, service, charging, a motel, and other maps belong to possible future versions.
 
-![Dokončená stanice](screenshots/desktop-complete.png)
+![Completed station](screenshots/desktop-complete.png)
 
 
 
-## Nové herní rozhraní
+## New game interface
 
-Celoplošný areál, plovoucí HUD a spodní nabídka; správa se otevírá až na vyžádání. Dvě rozšíření lze porovnat vedle sebe. Panel zavřeš křížkem, klepnutím mimo něj nebo Escape. [Průzkum a návrh UI](UI-REDESIGN-2026-10-01.md).
-
+A full-screen grounds view, a floating HUD, and a bottom menu; management opens only on demand. Two expansions can be compared side by side. Close a panel with the cross, by tapping outside it, or with Escape. [UI research and design](UI-REDESIGN-2026-10-01.md).

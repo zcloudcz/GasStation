@@ -13,7 +13,7 @@ npm run preview
 npm test         # unit tests
 ```
 
-Detailed game description (Czech): [docs/DETAILS.md](docs/DETAILS.md)
+Detailed game description: [docs/DETAILS.md](docs/DETAILS.md)
 
 ## Repository family
 
