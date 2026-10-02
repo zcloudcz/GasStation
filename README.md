@@ -1,33 +1,33 @@
 # Next Stop — Gas Station
 
-Tycoon hra o čerpací stanici: z jedné pumpy postav stanici pro auta i trucky se shopem, kávou, WC a sprchami a najmi personál.
+Tycoon game about a gas station: grow a single pump into a station for cars and trucks with a shop, coffee, restrooms and showers, and hire staff.
 
-Offline 3D hra pro prohlížeč a mobil (PWA), 20 jazyků, bez reklam a nákupů. Závisí na: RestaurantCommon.
+Offline 3D game for browser and mobile (PWA), 20 languages, no ads or in-app purchases. Depends on: RestaurantCommon.
 
-## Spuštění
+## Running
 
 ```bash
 npm run dev      # http://localhost:4175
-npm run build    # výstup v dist/
+npm run build    # output in dist/
 npm run preview
-npm test         # unit testy
+npm test         # unit tests
 ```
 
-Podrobný popis hry: [docs/DETAILS.md](docs/DETAILS.md)
+Detailed game description (Czech): [docs/DETAILS.md](docs/DETAILS.md)
 
-## Rodina repozitářů
+## Repository family
 
-Hry sdílí kód přes relativní cesty, proto se všechny repozitáře klonují **vedle sebe do jedné složky** (názvy složek musí zůstat stejné):
+The games share code through relative paths, so all repositories must be cloned **side by side into one folder** (keep the folder names unchanged):
 
 ```bash
 for r in RestaurantCommon CommonAdvanced BurgerRush PizzaPiazza GasStation RestaurantWorld; do git clone https://github.com/zcloudcz/$r.git; done
 cd RestaurantCommon && npm ci
 ```
 
-| Repo | Obsah |
+| Repo | Contents |
 |---|---|
-| [RestaurantCommon](https://github.com/zcloudcz/RestaurantCommon) | sdílený engine, UI, build a testy |
-| [CommonAdvanced](https://github.com/zcloudcz/CommonAdvanced) | provozní simulace pro RestaurantWorld |
-| [BurgerRush](https://github.com/zcloudcz/BurgerRush) · [PizzaPiazza](https://github.com/zcloudcz/PizzaPiazza) · [GasStation](https://github.com/zcloudcz/GasStation) · [RestaurantWorld](https://github.com/zcloudcz/RestaurantWorld) | hry |
+| [RestaurantCommon](https://github.com/zcloudcz/RestaurantCommon) | shared engine, UI, build tooling and tests |
+| [CommonAdvanced](https://github.com/zcloudcz/CommonAdvanced) | operations simulation used by Restaurant World |
+| [BurgerRush](https://github.com/zcloudcz/BurgerRush) · [PizzaPiazza](https://github.com/zcloudcz/PizzaPiazza) · [GasStation](https://github.com/zcloudcz/GasStation) · [RestaurantWorld](https://github.com/zcloudcz/RestaurantWorld) | games |
 
-Stack: TypeScript, Three.js, Vite, Vitest, Playwright. Node.js 22.12+, prohlížeč s WebGL 2.
+Stack: TypeScript, Three.js, Vite, Vitest, Playwright. Requires Node.js 22.12+ and a browser with WebGL 2.
